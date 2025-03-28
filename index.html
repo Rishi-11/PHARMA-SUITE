@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>PharmaSuite - Free Medical & Pharmacy Billing Software</title>
+    <meta name="description" content="Download PharmaSuite, the easy-to-use and completely free medical and pharmacy billing software. Streamline your invoicing, patient management, and reporting today.">
+    <meta name="keywords" content="pharma suite, medical billing software, pharmacy billing software, free billing software, patient management, invoicing software, healthcare billing">
+    <!-- Add Open Graph / Twitter Card meta tags here for better social sharing -->
+    <!-- <meta property="og:title" content="PharmaSuite - Free Medical & Pharmacy Billing Software" /> -->
+    <!-- <meta property="og:description" content="Download PharmaSuite..." /> -->
+    <!-- <meta property="og:image" content="[URL_to_your_featured_image.jpg]" /> -->
+    <!-- <meta property="og:url" content="[Your_Website_URL]" /> -->
+    <!-- <meta name="twitter:card" content="summary_large_image"> -->
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --pharma-primary: #0d6efd; /* Bootstrap primary blue */
+            --pharma-secondary: #6c757d;
+            --pharma-light: #f8f9fa;
+            --pharma-dark: #343a40;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .navbar {
+            transition: background-color 0.3s ease;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: var(--pharma-primary) !important;
+        }
+        .navbar-brand i {
+            margin-right: 0.5rem;
+        }
+        .nav-link {
+            color: var(--pharma-dark) !important;
+            margin: 0 0.5rem;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: var(--pharma-primary) !important;
+        }
+        .navbar.scrolled {
+             background-color: rgba(255, 255, 255, 0.95) !important;
+             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Hero Section */
+        #hero {
+            background-color: var(--pharma-light);
+            padding: 8rem 0 6rem 0;
+            text-align: center;
+            position: relative; /* For potential background elements */
+        }
+        #hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--pharma-dark);
+        }
+        #hero p.lead {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: var(--pharma-secondary);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #hero .btn-primary {
+            padding: 0.8rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin: 0.5rem;
+            background-color: var(--pharma-primary);
+            border-color: var(--pharma-primary);
+        }
+         #hero .btn-outline-secondary {
+            padding: 0.8rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin: 0.5rem;
+        }
+        #hero img.hero-image {
+             max-width: 80%;
+             height: auto;
+             margin-top: 3rem;
+             border-radius: 8px;
+             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 0;
+        }
+        section h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 3rem;
+            color: var(--pharma-dark);
+        }
+         section h2::after { /* Simple underline */
+             content: '';
+             display: block;
+             width: 60px;
+             height: 3px;
+             background-color: var(--pharma-primary);
+             margin: 0.5rem auto 0;
+         }
+
+        /* Features Section */
+        #features .feature-item {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        #features .feature-icon {
+            font-size: 3rem;
+            color: var(--pharma-primary);
+            margin-bottom: 1rem;
+            display: inline-block;
+            background-color: #e7f1ff;
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+        }
+        #features h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--pharma-dark);
+        }
+        #features p {
+            color: var(--pharma-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Why Choose Us Section */
+        #why-pharmasuite {
+            background-color: var(--pharma-light);
+        }
+        #why-pharmasuite .benefit-item i {
+            font-size: 1.5rem;
+            color: var(--pharma-primary);
+            margin-right: 0.75rem;
+            width: 30px; /* Align text */
+        }
+        #why-pharmasuite .benefit-item {
+            display: flex;
+            align-items: start; /* Align icon with first line of text */
+            margin-bottom: 1.5rem;
+        }
+         #why-pharmasuite .benefit-text strong {
+             display: block;
+             font-weight: 600;
+             margin-bottom: 0.2rem;
+             color: var(--pharma-dark);
+         }
+        #why-pharmasuite p {
+             color: var(--pharma-secondary);
+             margin-bottom: 0;
+        }
+        #why-pharmasuite img.why-image {
+             max-width: 100%;
+             border-radius: 8px;
+             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        /* Screenshots Section */
+        #screenshots img {
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Testimonials Section */
+        #testimonials {
+            background-color: var(--pharma-primary);
+            color: #fff;
+        }
+         #testimonials h2 {
+             color: #fff;
+         }
+         #testimonials h2::after {
+             background-color: #fff;
+         }
+         #testimonials .testimonial-card {
+             background-color: rgba(255, 255, 255, 0.1);
+             border: none;
+             padding: 1.5rem;
+             border-radius: 8px;
+             margin-bottom: 1rem;
+             color: #f8f9fa;
+         }
+         #testimonials .testimonial-card blockquote {
+             font-style: italic;
+             margin-bottom: 1rem;
+             border-left: 3px solid #fff;
+             padding-left: 1rem;
+         }
+         #testimonials .testimonial-author {
+             font-weight: 600;
+         }
+
+        /* Download Section */
+        #download {
+            background-color: var(--pharma-light);
+            text-align: center;
+        }
+        #download p {
+            color: var(--pharma-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        #download .btn-success {
+            padding: 0.8rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin: 0.5rem;
+        }
+        #download .download-icon {
+            margin-right: 0.5rem;
+        }
+        #download .compatibility-info {
+             margin-top: 1.5rem;
+             font-size: 0.9rem;
+             color: var(--pharma-secondary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--pharma-dark);
+            color: var(--pharma-light);
+            padding: 2rem 0;
+            text-align: center;
+        }
+        footer p {
+            margin-bottom: 0.5rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        footer a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+        footer a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            #hero h1 {
+                font-size: 2.2rem;
+            }
+            #hero p.lead {
+                font-size: 1.1rem;
+            }
+            section h2 {
+                font-size: 1.8rem;
+            }
+            section {
+                 padding: 3rem 0;
+            }
+            #hero {
+                 padding: 6rem 0 4rem 0;
+            }
+             #why-pharmasuite img.why-image {
+                 margin-top: 2rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#hero">
+                <i class="fas fa-clinic-medical"></i>PharmaSuite
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#why-pharmasuite">Why Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#screenshots">Screenshots</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#download">Download</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <h1>Streamline Your Billing with PharmaSuite</h1>
+                        <p class="lead">The simple, efficient, and completely FREE medical and pharmacy billing software designed for independent practices and pharmacies.</p>
+                        <a href="#download" class="btn btn-primary btn-lg">
+                            <i class="fas fa-download"></i> Download Now (Free)
+                        </a>
+                        <a href="#features" class="btn btn-outline-secondary btn-lg">Learn More</a>
+                        <!-- Optional: Add a representative image/screenshot -->
+                        <!-- <img src="images/pharmasuite-hero.png" alt="PharmaSuite Dashboard Screenshot" class="img-fluid hero-image"> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features">
+            <div class="container">
+                <h2>Key Features</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="feature-item">
+                            <span class="feature-icon"><i class="fas fa-users"></i></span>
+                            <h3>Patient Management</h3>
+                            <p>Easily manage patient demographics, history, and insurance details in one secure place.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-item">
+                            <span class="feature-icon"><i class="fas fa-file-invoice-dollar"></i></span>
+                            <h3>Effortless Invoicing</h3>
+                            <p>Create, send, and track professional invoices quickly. Manage payments and outstanding balances.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-item">
+                            <span class="feature-icon"><i class="fas fa-chart-pie"></i></span>
+                            <h3>Insightful Reporting</h3>
+                            <p>Generate essential reports on revenue, receivables, patient activity, and more to make informed decisions.</p>
+                        </div>
+                    </div>
+                     <div class="col-md-4">
+                        <div class="feature-item">
+                            <span class="feature-icon"><i class="fas fa-pills"></i></span>
+                            <h3>Pharmacy Focused</h3>
+                            <p>Includes features tailored for pharmacy billing needs alongside general medical billing.</p>
+                        </div>
+                    </div>
+                     <div class="col-md-4">
+                        <div class="feature-item">
+                            <span class="feature-icon"><i class="fas fa-shield-alt"></i></span>
+                            <h3>Secure Data</h3>
+                            <p>Your patient and financial data is kept secure locally on your system (add details if applicable).</p>
+                        </div>
+                    </div>
+                     <div class="col-md-4">
+                        <div class="feature-item">
+                            <span class="feature-icon"><i class="fas fa-gift"></i></span>
+                            <h3>Absolutely Free</h3>
+                            <p>Get all the core features you need without any subscription fees or hidden costs. Really!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section id="why-pharmasuite">
+            <div class="container">
+                <h2>Why Choose PharmaSuite?</h2>
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                         <div class="benefit-item">
+                             <i class="fas fa-check-circle"></i>
+                             <div class="benefit-text">
+                                 <strong>Completely Free, Forever:</strong> No trials, no hidden fees, no credit card required. Just powerful billing software at no cost.
+                             </div>
+                         </div>
+                         <div class="benefit-item">
+                             <i class="fas fa-tachometer-alt"></i>
+                              <div class="benefit-text">
+                                 <strong>Simple & Intuitive:</strong> Designed for ease of use, allowing you to get started quickly without extensive training.
+                             </div>
+                         </div>
+                         <div class="benefit-item">
+                             <i class="fas fa-clock"></i>
+                             <div class="benefit-text">
+                                 <strong>Save Time & Reduce Errors:</strong> Automate repetitive billing tasks and minimize manual data entry errors, freeing up your valuable time.
+                            </div>
+                         </div>
+                         <div class="benefit-item">
+                             <i class="fas fa-cogs"></i>
+                             <div class="benefit-text">
+                                 <strong>Essential Features Included:</strong> Covers core billing, patient management, and reporting needs for small to medium practices/pharmacies.
+                             </div>
+                         </div>
+                         <div class="benefit-item">
+                             <i class="fas fa-headset"></i>
+                              <div class="benefit-text">
+                                 <strong>Community Support (Optional):</strong> Access documentation and potentially a community forum for help (mention if applicable).
+                             </div>
+                         </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <!-- Replace with an appealing image representing efficiency or the software interface -->
+                        <img src="images/why-choose-us.jpg" alt="Pharmacist working efficiently with PharmaSuite" class="img-fluid why-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <!-- Screenshots Section -->
+        <section id="screenshots">
+            <div class="container">
+                <h2>See PharmaSuite in Action</h2>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                         <!-- Replace with actual screenshot -->
+                        <img src="images/screenshot1.jpg" alt="PharmaSuite Dashboard Screenshot" class="img-fluid">
+                        <p><strong>Clean Dashboard</strong></p>
+                    </div>
+                    <div class="col-md-4">
+                         <!-- Replace with actual screenshot -->
+                        <img src="images/screenshot2.jpg" alt="PharmaSuite Patient Management Screen" class="img-fluid">
+                         <p><strong>Easy Patient Records</strong></p>
+                    </div>
+                    <div class="col-md-4">
+                        <!-- Replace with actual screenshot -->
+                        <img src="images/screenshot3.jpg" alt="PharmaSuite Invoice Creation Screen" class="img-fluid">
+                         <p><strong>Simple Invoicing</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section (Optional but Recommended) -->
+        <!--
+        <section id="testimonials">
+            <div class="container">
+                <h2>What Users Are Saying</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="testimonial-card">
+                            <blockquote>"PharmaSuite has been a lifesaver for our small pharmacy. It's easy to use and incredibly helpful that it's free!"</blockquote>
+                            <p class="testimonial-author">- Jane D., Independent Pharmacist</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="testimonial-card">
+                            <blockquote>"Finally, a billing software that doesn't break the bank. Does exactly what we need for patient billing and tracking."</blockquote>
+                            <p class="testimonial-author">- Dr. Michael R., Small Practice Owner</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        -->
+
+        <!-- Download Section -->
+        <section id="download">
+            <div class="container">
+                <h2>Ready to Simplify Your Billing?</h2>
+                <p>Download PharmaSuite today and experience the freedom of powerful, free medical billing software.</p>
+                <div>
+                    <!-- IMPORTANT: Replace '#' with your actual download links -->
+                    <a href="[YOUR_DOWNLOAD_LINK_WINDOWS.zip]" class="btn btn-success btn-lg">
+                        <i class="fab fa-windows download-icon"></i> Download for Windows
+                    </a>
+                    <a href="[YOUR_DOWNLOAD_LINK_MAC.dmg]" class="btn btn-success btn-lg">
+                        <i class="fab fa-apple download-icon"></i> Download for macOS
+                    </a>
+                    <!-- Add links for other platforms if available (e.g., Linux) -->
+                </div>
+                 <p class="compatibility-info">
+                    Requires Windows 10/11 or macOS 10.13+ (Update with actual requirements) <br>
+                    By downloading, you agree to our (optional) <a href="#!">Terms of Service</a> and <a href="#!">Privacy Policy</a>.
+                 </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 PharmaSuite. All Rights Reserved.</p>
+            <p>
+                <!-- Add links if you have these pages -->
+                 <a href="#!">Privacy Policy</a> |
+                 <a href="#!">Terms of Service</a> |
+                 <a href="#!">Contact (Optional)</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <!-- Custom JavaScript (Optional: for effects like navbar shrink) -->
+    <script>
+        // Shrink navbar on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('mainNav');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Optional: Close mobile nav on item click
+        const navLinks = document.querySelectorAll('.nav-link');
+        const menuToggle = document.getElementById('navbarResponsive');
+        const bsCollapse = new bootstrap.Collapse(menuToggle, {toggle: false}); // prevent auto init
+        navLinks.forEach((l) => {
+            l.addEventListener('click', () => {
+                 // Check if the navbar collapse element is shown (mobile view)
+                 if (menuToggle.classList.contains('show')) {
+                    bsCollapse.toggle();
+                 }
+             });
+        });
+    </script>
+
+</body>
+</html>
